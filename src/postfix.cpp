@@ -12,10 +12,11 @@ std::string infix2postfix(std::string infix) {
   while (i < infix.length()) {
     if (infix[i] != ' ') {
       if (infix[i] >= '0' && infix[i] <= '9') {
-        while (infix[i] != ' ' && i < infix.length()) {
+        while (infix[i] != ' ' && infix[i] != ')' && i < infix.length()) {
           postfix += infix[i];
           ++i;
         }
+        --i;
         postfix += ' ';
       } else {
         if (infix[i] == '(') {
