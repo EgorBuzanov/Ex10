@@ -31,7 +31,9 @@ std::string infix2postfix(std::string infix) {
           } else {
             if (infix[i] == '+' || infix[i] == '-') {
               while (operations_stack.get() == '+' ||
-                     operations_stack.get() == '-') {
+                     operations_stack.get() == '-' ||
+                     operations_stack.get() == '*' ||
+                     operations_stack.get() == '/') {
                 postfix += operations_stack.pop();
                 postfix += ' ';
               }
